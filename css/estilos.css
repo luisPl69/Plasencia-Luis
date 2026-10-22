@@ -1,0 +1,148 @@
+/* ============================================
+   PASO 1: VARIABLES CSS Y MODO OSCURO
+   ============================================ */
+:root {
+    /* Colores principales (MODO CLARO) */
+    --color-fondo: #ffffff;
+    --color-texto: #1a1a1a;
+    --color-primario: #1b5e20;
+    --color-secundario: #2e7d32;
+    --color-borde: #cccccc;
+    --color-texto-boton: #ffffff;
+    
+    /* Colores de fondo para secciones */
+    --color-fondo-header: #f5f5dc;
+    --color-fondo-main: #ffffff;
+    --color-fondo-aside: #fff8dc;
+    --color-fondo-footer: #f5f5dc;
+    
+    /* Espaciado */
+    --espaciado-base: 1rem;
+    --espaciado-grande: 2rem;
+}
+
+/* ============================================
+   VARIABLES CSS - MODO OSCURO
+   (Se aplican automáticamente si el usuario tiene modo oscuro)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Solo cambiamos las variables, NO duplicamos reglas */
+        --color-fondo: #1a1a1a;
+        --color-texto: #e0e0e0;
+        --color-primario: #66bb6a;
+        --color-secundario: #81c784;
+        --color-borde: #444444;
+        --color-texto-boton: #121212;
+        
+        --color-fondo-header: #2a2a2a;
+        --color-fondo-main: #1a1a1a;
+        --color-fondo-aside: #2a2a2a;
+        --color-fondo-footer: #2a2a2a;
+    }
+}
+
+/* ============================================
+   PASO 2: ESTILOS GENERALES
+   ============================================ */
+
+/* Reset básico para eliminar márgenes por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del body (cuerpo de la página) */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+/* Encabezados */
+h1, h2, h3 {
+    color: var(--color-primario);
+    margin-bottom: var(--espaciado-base);
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--color-primario);
+    padding-bottom: 0.5rem;
+}
+
+/* Enlaces */
+a {
+    color: var(--color-primario);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   HEADER Y NAVEGACIÓN
+   ============================================ */
+header {
+    background-color: var(--color-fondo-header);
+    padding: var(--espaciado-base);
+    border-bottom: 2px solid var(--color-primario);
+}
+
+/* Navegación con Flexbox */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--espaciado-base);
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: block;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-primario);
+    color: var(--color-texto-boton);
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: var(--color-secundario);
+}
+
+/* ============================================
+   MAIN (Contenido principal)
+   ============================================ */
+main {
+    background-color: var(--color-fondo-main);
+    padding: var(--espaciado-grande);
+}
+
+section {
+    margin-bottom: var(--espaciado-grande);
+}
+
+/* ============================================
+   ASIDE (Contenido complementario)
+   ============================================ */
+aside {
+    background-color: var(--color-fondo-aside);
+    padding: var(--espaciado-base);
+    border-left: 3px solid var(--color-primario);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    background-color: var(--color-fondo-footer);
+    padding: var(--espaciado-base);
+    text-align: center;
+    border-top: 2px solid var(--color-primario);
+}
