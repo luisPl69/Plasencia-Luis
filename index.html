@@ -26,7 +26,57 @@
         </section>
         <section id = " Precios ">
             <h2>Precio de nuesstros Talleres</h2>
-
+            <table>
+                <caption> Precios y detalles de nuestros talleres</caption>
+                <thead>
+                    <tr>
+                        <th scope=" col">Talleres</th>
+                        <th scope=" col">Duracion </th>
+                        <th scope=" col">Precio</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ceramicas</td>
+                        <td>3 horas </td>
+                        <td>$30</td>
+                    </tr>
+                    <tr>
+                        <td>Sombreros</td>
+                        <td>2 horas</td>
+                        <td>$40</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section id="Reservas">
+            <h2>Reserva tu taller </h2>
+            <form action="#" method="post">    
+                <fieldset>
+                    <legend>Datos para reservar un taller</legend>
+                    
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="email" id="correo" name="correo" required>
+                    
+                    <label for="fecha">Fecha de reserva:</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                    
+                    <label for="hora">Hora de reserva:</label>
+                    <input type="time" id="hora" name="hora" required>
+                    
+                    <label for="taller">Taller de interés:</label>
+                    <select id="taller" name="taller" required>
+                        <option value="">Selecciona un taller</option>
+                        <option value="ceramica">Cerámica</option>
+                        <option value="tejido">Tejido</option>
+                    </select>
+                    
+                    <button type="submit">Reservar</button>
+                </fieldset>
+            </form>
         </section>
     </main>
 </body>
