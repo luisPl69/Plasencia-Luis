@@ -1,8 +1,7 @@
 /* ============================================
-   PASO 1: VARIABLES CSS Y MODO OSCURO
+   VARIABLES CSS - MODO CLARO
    ============================================ */
 :root {
-    /* Colores principales (MODO CLARO) */
     --color-fondo: #ffffff;
     --color-texto: #1a1a1a;
     --color-primario: #1b5e20;
@@ -10,24 +9,20 @@
     --color-borde: #cccccc;
     --color-texto-boton: #ffffff;
     
-    /* Colores de fondo para secciones */
     --color-fondo-header: #f5f5dc;
     --color-fondo-main: #ffffff;
     --color-fondo-aside: #fff8dc;
     --color-fondo-footer: #f5f5dc;
     
-    /* Espaciado */
     --espaciado-base: 1rem;
     --espaciado-grande: 2rem;
 }
 
 /* ============================================
    VARIABLES CSS - MODO OSCURO
-   (Se aplican automáticamente si el usuario tiene modo oscuro)
    ============================================ */
 @media (prefers-color-scheme: dark) {
     :root {
-        /* Solo cambiamos las variables, NO duplicamos reglas */
         --color-fondo: #1a1a1a;
         --color-texto: #e0e0e0;
         --color-primario: #66bb6a;
@@ -43,25 +38,50 @@
 }
 
 /* ============================================
-   PASO 2: ESTILOS GENERALES
+   RESET Y ESTILOS GENERALES
    ============================================ */
-
-/* Reset básico para eliminar márgenes por defecto */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilos del body (cuerpo de la página) */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: var(--color-fondo);
     color: var(--color-texto);
+    
+    /* ✅ GRID PARA LA ESTRUCTURA GENERAL (corrige Hallazgo 1) */
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "aside"
+        "footer";
+    grid-template-columns: 1fr;
+    min-height: 100vh;
 }
 
-/* Encabezados */
+/* ✅ Breakpoint 640px (tu requisito especial) */
+@media (min-width: 640px) {
+    body {
+        grid-template-areas:
+            "header header"
+            "main   aside"
+            "footer footer";
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+header { grid-area: header; }
+main   { grid-area: main; }
+aside  { grid-area: aside; }
+footer { grid-area: footer; }
+
+/* ============================================
+   ENCABEZADOS
+   ============================================ */
 h1, h2, h3 {
     color: var(--color-primario);
     margin-bottom: var(--espaciado-base);
@@ -77,7 +97,9 @@ h2 {
     padding-bottom: 0.5rem;
 }
 
-/* Enlaces */
+/* ============================================
+   ENLACES
+   ============================================ */
 a {
     color: var(--color-primario);
     text-decoration: none;
@@ -88,7 +110,7 @@ a:hover {
 }
 
 /* ============================================
-   HEADER Y NAVEGACIÓN
+   HEADER Y NAVEGACIÓN (con FLEXBOX)
    ============================================ */
 header {
     background-color: var(--color-fondo-header);
@@ -96,7 +118,6 @@ header {
     border-bottom: 2px solid var(--color-primario);
 }
 
-/* Navegación con Flexbox */
 nav ul {
     list-style: none;
     display: flex;
@@ -117,7 +138,7 @@ nav a:hover {
 }
 
 /* ============================================
-   MAIN (Contenido principal)
+   MAIN
    ============================================ */
 main {
     background-color: var(--color-fondo-main);
@@ -128,8 +149,100 @@ section {
     margin-bottom: var(--espaciado-grande);
 }
 
+/* ✅ Imágenes responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: var(--espaciado-base);
+}
+
 /* ============================================
-   ASIDE (Contenido complementario)
+   TABLA
+   ============================================ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--espaciado-base);
+}
+
+caption {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primario);
+    margin-bottom: var(--espaciado-base);
+    text-align: left;
+}
+
+th, td {
+    border: 1px solid var(--color-borde);
+    padding: 0.75rem;
+    text-align: left;
+}
+
+thead {
+    background-color: var(--color-primario);
+    color: var(--color-texto-boton);
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ============================================
+   FORMULARIO
+   ============================================ */
+fieldset {
+    border: 2px solid var(--color-primario);
+    border-radius: 8px;
+    padding: var(--espaciado-base);
+    margin-bottom: var(--espaciado-base);
+}
+
+legend {
+    color: var(--color-primario);
+    font-weight: bold;
+    padding: 0 0.5rem;
+}
+
+.campo {
+    margin-bottom: var(--espaciado-base);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 4px;
+    font: inherit;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+.boton {
+    display: inline-block;
+    background-color: var(--color-primario);
+    color: var(--color-texto-boton);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font: inherit;
+    font-weight: bold;
+}
+
+.boton:hover {
+    background-color: var(--color-secundario);
+}
+
+/* ============================================
+   ASIDE
    ============================================ */
 aside {
     background-color: var(--color-fondo-aside);
@@ -145,4 +258,15 @@ footer {
     padding: var(--espaciado-base);
     text-align: center;
     border-top: 2px solid var(--color-primario);
+}
+
+/* ============================================
+   FOCO VISIBLE (accesibilidad con teclado)
+   ============================================ */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--color-secundario);
+    outline-offset: 2px;
 }

@@ -3,92 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Artesanías</title>
+    <title>Tienda de Artesanías "Manos Creativas"</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
+    
+    <!-- HEADER con NAVEGACIÓN -->
     <header>
-        <h1>Tienda de Artesanías </h1>
-        <nav>
+        <h1>Tienda de Artesanías "Manos Creativas"</h1>
+        
+        <nav aria-label="Navegación principal">
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#Horarios">Horarios</a></li>
+                <li><a href="#productos">Productos</a></li>
                 <li><a href="#precios">Precios</a></li>
                 <li><a href="#reservas">Reservar</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section id = "Productos ">
-            <h2> Nuestros Productos Artesanales </h2>
-            <p> Nuestros productos estan realizados por manos artesanas, lo que el precio de nuestro productos son muy esenciales</p>
-
+    
+    <!-- CONTENIDO PRINCIPAL -->
+    <main id="inicio">
+        
+        <!-- SECCIÓN 1: Productos -->
+        <section id="productos">
+            <h2>Nuestros productos artesanales</h2>
+            
+            <img src="img/artesania.jpg" alt="Cerámica artesanal pintada a mano con diseños tradicionales">
+            
+            <p>
+                En nuestra tienda encontrarás piezas únicas hechas a mano
+                por artesanos locales: cerámica, tejidos, tallados en madera
+                y mucho más.
+            </p>
         </section>
-        <section id = " Precios ">
-            <h2>Precio de nuesstros Talleres</h2>
+        
+        <!-- SECCIÓN 2: Precios (con TABLA) -->
+        <section id="precios">
+            <h2>Precios de nuestros talleres</h2>
+            
             <table>
-                <caption> Precios de talleres</caption>
+                <caption>Precios y detalles de nuestros talleres</caption>
                 <thead>
                     <tr>
-                        <th scope=" col">Talleres</th>
-                        <th scope=" col">Duracion </th>
-                        <th scope=" col">Precio</th> 
+                        <th scope="col">Taller</th>
+                        <th scope="col">Duración</th>
+                        <th scope="col">Precio</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Ceramicas</td>
-                        <td>3 horas </td>
-                        <td>$30</td>
+                        <td>Cerámica básica</td>
+                        <td>3 horas</td>
+                        <td>$25</td>
                     </tr>
                     <tr>
-                        <td>Tejido</td>
-                        <td>2 horas</td>
+                        <td>Tejido avanzado</td>
+                        <td>5 horas</td>
                         <td>$40</td>
+                    </tr>
+                    <tr>
+                        <td>Carpintería</td>
+                        <td>4 horas</td>
+                        <td>$35</td>
                     </tr>
                 </tbody>
             </table>
         </section>
-        <section id="Reservas">
-            <h2>Reserva tu taller </h2>
-            <form action="#" method="post">    
+        
+        <!-- SECCIÓN 3: Reservas (con FORMULARIO) -->
+        <section id="reservas">
+            <h2>Reserva tu taller</h2>
+            
+            <form action="#" method="post">
                 <fieldset>
                     <legend>Datos para reservar un taller</legend>
                     
-                    <label for="nombre">Nombre completo:</label>
-                    <input type="text" id="nombre" name="nombre" required>
+                    <div class="campo">
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
                     
-                    <label for="correo">Correo electrónico:</label>
-                    <input type="email" id="correo" name="correo" required>
+                    <div class="campo">
+                        <label for="correo">Correo electrónico:</label>
+                        <input type="email" id="correo" name="correo" required>
+                    </div>
                     
-                    <label for="fecha">Fecha de reserva:</label>
-                    <input type="date" id="fecha" name="fecha" required>
+                    <div class="campo">
+                        <label for="fecha">Fecha de reserva:</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
                     
-                    <label for="hora">Hora de reserva:</label>
-                    <input type="time" id="hora" name="hora" required>
+                    <div class="campo">
+                        <label for="hora">Hora de reserva:</label>
+                        <input type="time" id="hora" name="hora" required>
+                    </div>
                     
-                    <label for="taller">Taller de interés:</label>
-                    <select id="taller" name="taller" required>
-                        <option value="">Selecciona un taller</option>
-                        <option value="ceramica">Cerámica</option>
-                        <option value="tejido">Tejido</option>
-                    </select>
+                    <div class="campo">
+                        <label for="taller">Taller de interés:</label>
+                        <select id="taller" name="taller" required>
+                            <option value="">Selecciona un taller</option>
+                            <option value="ceramica">Cerámica</option>
+                            <option value="tejido">Tejido</option>
+                            <option value="carpinteria">Carpintería</option>
+                        </select>
+                    </div>
                     
-                    <button type="submit">Reservar</button>
+                    <button type="submit" class="boton">Reservar</button>
                 </fieldset>
             </form>
         </section>
+        
     </main>
     
+    <!-- CONTENIDO COMPLEMENTARIO -->
     <aside>
         <h2>Horarios de atención</h2>
         <p>Lunes a Viernes: 9:00 - 18:00</p>
         <p>Sábado: 10:00 - 14:00</p>
     </aside>
     
-    
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p>&copy; 2026 Tienda de Artesanías. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Tienda de Artesanías. Todos los derechos reservados.</p>
     </footer>
+    
 </body>
 </html>
